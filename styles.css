@@ -1,0 +1,64 @@
+html, 
+body {
+    height: 100%;
+}
+
+#content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.text-container {
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+
+.iphone-container {
+    position: relative;
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+.iphone {
+    background: url(img/iphone.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    /*width: 295px;*/
+    height: 500px;
+    margin: 4% auto;
+    position: relative;
+}
+
+.android {
+    background: url(img/android.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    /*width: 295px;*/
+    height: 500px;
+    margin: 4% auto;
+    position: relative;
+}
+
+.center {
+    margin: auto;
+}
+
+.height-20 {
+    height: 20%;
+    align-items: center;
+}
+
+.height-80 {
+    height: 80%;
+    align-items: center;
+}
+
+.text {
+    color: #404040;
+    font-size: 42px;
+    font-family: "lato", sans-serif;
+}
