@@ -10,6 +10,10 @@ body {
     height: 100%;
 }
 
+.text-white {
+    color: white;
+}
+
 .fill-height {
     height: 100%;
 }
@@ -70,6 +74,16 @@ body {
     align-items: center;
 }
 
+.height-25 {
+    height: 25%;
+    align-items: center;
+}
+
+.height-50 {
+    height: 50%;
+    align-items: center;
+}
+
 .height-70 {
     height: 70%;
     align-items: center;
@@ -77,6 +91,10 @@ body {
 
 .text {
     color: #ffffff;
-    font-size: 42px;
+    font-size: 32px;
     font-family: "lato", sans-serif;
+}
+
+.center-text {
+    text-align: center;
 }
