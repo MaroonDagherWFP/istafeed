@@ -1,41 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>dalili.io</title>
+  <title>dalili.io</title>
     
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-	<link rel="stylesheet" href="http://cdn.wfp.org/libraries/webfonts/lato/lato.css">
-	<link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <link rel="stylesheet" href="http://cdn.wfp.org/libraries/webfonts/lato/lato.css">
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-	<div class="container fill-height">
-		<div class="row height-25">
-			<div class="center logo-container">
-				<img class="logo" src="img/app-name.png">
-			</div>
-		</div>
-		<div class="row height-50 align-items-center justify-content-center">
-			<iframe width="560" height="315" src="https://www.youtube.com/embed/HYCEcv9OCxs?rel=0&autoplay=1" frameborder="0" allow="autoplay; encrypted-media" class="align-self-center" allowfullscreen></iframe>			
-		</div>
-		<div class="row height-25">
-			<div class="col-sm">
-				<div class="center text">		
-					<div class="row center center-text justify-content-center">
-						<a href="https://goo.gl/uw6pYD" class="center-text text-white">
-							<span class="center">إضغط هنا للتحميل</span><br>
-							<span class="center">click here to download</span>
-						</a>
-					</div>	
-				</div>
-			</div>
-		</div>
-	</div>
+  <div class="container fill-height">
+    <div class="row height-25">
+      <div class="center logo-container">
+        <img class="logo" src="img/app-name.png">
+      </div>
+    </div>
+    <div class="row height-50 align-items-center justify-content-center">
+      <div id="player"></div> 
+    </div>
+    <div class="row height-25">
+      <div class="col-sm">
+        <div class="center text">   
+          <div class="row center center-text justify-content-center">
+            <a href="https://goo.gl/uw6pYD" class="center-text text-white">
+              <span class="center">إضغط هنا للتحميل</span><br>
+              <span class="center">click here to download</span>
+            </a>
+          </div>  
+        </div>
+      </div>
+    </div>
+  </div>
 
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    <script>
+      // 2. This code loads the IFrame Player API code asynchronously.
+      var tag = document.createElement('script');
+
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      // 3. This function creates an <iframe> (and YouTube player)
+      //    after the API code downloads.
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          height: '315',
+          width: '560',
+          videoId: 'HYCEcv9OCxs',
+          events: {
+            'onReady': onPlayerReady
+            // 'onStateChange': onPlayerStateChange
+          }
+        });
+      }
+
+      // 4. The API will call this function when the video player is ready.
+      function onPlayerReady(event) {
+        event.target.playVideo();
+      }
+
+      // 5. The API calls this function when the player's state changes.
+      //    The function indicates that when playing a video (state=1),
+      //    the player should play for six seconds and then stop.
+      // var done = false;
+      // function onPlayerStateChange(event) {
+      //   if (event.data == YT.PlayerState.PLAYING && !done) {
+      //     setTimeout(stopVideo, 6000);
+      //     done = true;
+      //   }
+      // }
+      // function stopVideo() {
+      //   player.stopVideo();
+      // }
+    </script> 
 </body>
 </html>
