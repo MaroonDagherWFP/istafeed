@@ -91,13 +91,13 @@ body {
 
 .text {
     color: #ffffff;
-    font-size: 32px;
+    font-size: 1.2em;
     font-family: "lato", sans-serif;
 }
 
 .text-note {
     color: #ffffff;
-    font-size: 20px;
+    font-size: 1em;
     font-family: "lato", sans-serif;
 }
 
